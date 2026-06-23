@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raíces — Travesía</title>
+<meta name="description" content="Raíces — specialty Colombian coffee from Santander.">
+<link rel="icon" type="image/png" href="assets/symbol-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* TRAVESÍA — Producto Raíces · paleta oficial · dos fases (SITE_PHASE en script). */
+:root{--coffee:#473224;--coffee-deep:#3d2a1c;--night:#3d2a1c;--teal:#018E86;--teal-deep:#09685F;--gold:#BE9F56;--gold-soft:#cdb877;--beige:#E1D6C0;--paper:#F2EADB;--cream:#FAF8F4;--ink:#2e2014;--font-hero:'Cormorant Garamond',serif;--font-display:'Cormorant Garamond',serif;--font-serif:'Cormorant Garamond',serif;--font-sans:'DM Sans',system-ui,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}a{color:inherit;text-decoration:none;}button{font-family:inherit;cursor:pointer;border:none;background:none;}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+.only-ea,.only-po{display:none;}
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.chapter{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.34em;color:var(--gold);display:inline-flex;align-items:center;gap:14px;}
+.chapter::before{content:"";width:36px;height:1px;background:var(--gold);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 24px;background:rgba(58,39,25,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.nav__logo{justify-self:center;line-height:0;}.nav__logo img{height:34px;width:auto;max-width:170px;object-fit:contain;}
+.nav__links{display:none;gap:36px;justify-content:center;list-style:none;}
+.nav__links a{font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);transition:color .2s;}
+.nav__links a:hover{color:var(--gold);}
+.nav__right{display:flex;align-items:center;gap:20px;justify-self:end;}
+.lang{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;}
+.lang button{color:var(--cream);transition:color .2s;}.lang button.active{color:var(--gold);}.lang span{color:var(--beige);opacity:.5;}
+.cart{color:var(--cream);width:22px;height:22px;}
+.burger{color:var(--cream);justify-self:start;display:flex;flex-direction:column;gap:5px;padding:6px 0;}
+.burger span{width:24px;height:1.5px;background:currentColor;display:block;}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:var(--coffee-deep);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:32px;transform:translateX(-100%);transition:transform .35s;}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{font-family:var(--font-sans);font-size:15px;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);}
+.mobile-menu .mm-social{display:flex;gap:24px;margin-top:24px;color:var(--beige);}
+.mobile-menu .mm-close{position:absolute;top:24px;right:24px;color:var(--cream);font-size:28px;}
+@media(min-width:980px){.nav{height:80px;padding:0 80px;}.nav__logo{justify-self:start;}.nav__logo img{height:42px;max-width:230px;}.nav__links{display:flex;}.burger{display:none;}.mobile-menu{display:none;}}
+.btn-primary{font-family:var(--font-sans);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;background:var(--gold);color:var(--coffee);padding:16px 38px;border-radius:0;display:inline-block;transition:background .25s;}
+.btn-primary:hover{background:var(--gold-soft);}
+/* Producto */
+.product{position:relative;background:var(--coffee);color:var(--beige);padding:130px 24px 90px;overflow:hidden;}
+.product::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 80% at 30% 25%,rgba(0,0,0,0) 40%,rgba(58,39,25,.28) 100%);pointer-events:none;}
+.product__grid{position:relative;max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:48px;}
+.gallery__main{aspect-ratio:1/1;background:radial-gradient(70% 60% at 50% 38%,#5e4230,var(--coffee-deep));border:1px solid rgba(190,159,86,.3);margin-bottom:14px;display:flex;align-items:flex-end;justify-content:center;color:rgba(225,214,192,.5);font-family:var(--font-sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:22px;}
+.gallery__thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.gallery__thumbs div{aspect-ratio:1/1;background:var(--coffee-deep);border:1px solid rgba(190,159,86,.18);display:flex;align-items:center;justify-content:center;color:rgba(225,214,192,.5);font-family:var(--font-sans);font-size:10px;text-transform:uppercase;letter-spacing:.12em;}
+.info .chapter{margin-bottom:18px;}
+.info__title{font-family:var(--font-display);font-size:clamp(38px,6vw,60px);color:var(--cream);margin:6px 0 20px;}
+.info__story{font-family:var(--font-serif);font-style:italic;font-size:17px;line-height:1.5;color:rgba(225,214,192,.85);margin-bottom:24px;max-width:46ch;}
+.notes{font-family:var(--font-sans);font-size:12px;color:var(--gold-soft);letter-spacing:.06em;margin-bottom:28px;}
+.ea-box{border:1px solid rgba(190,159,86,.4);padding:24px;margin-bottom:24px;}
+.ea-box h3{font-family:var(--font-display);font-size:20px;color:var(--cream);margin-bottom:10px;}
+.ea-box p{font-family:var(--font-serif);font-size:16px;color:rgba(225,214,192,.85);line-height:1.5;}
+.price-block .now{font-family:var(--font-serif);font-size:24px;color:var(--cream);}
+.price-block .later{display:block;font-family:var(--font-sans);font-size:12px;font-weight:300;color:rgba(225,214,192,.6);margin:4px 0 28px;}
+.disclaimer{margin-top:24px;max-width:52ch;font-family:var(--font-serif);font-size:15px;line-height:1.5;color:rgba(225,214,192,.72);border-top:1px solid rgba(190,159,86,.25);padding-top:20px;}
+@media(min-width:980px){.product__grid{grid-template-columns:1fr 1fr;gap:70px;}}
+/* Ficha */
+.spec{background:var(--beige);padding:90px 24px;}
+.spec__wrap{max-width:720px;margin:0 auto;}
+.spec h2{font-family:var(--font-display);font-size:clamp(24px,3.5vw,34px);color:var(--ink);margin-bottom:28px;text-align:center;}
+.spec table{width:100%;border-collapse:collapse;}
+.spec td{padding:14px 0;border-bottom:1px solid rgba(71,50,36,.18);vertical-align:top;}
+.spec td.field{font-family:var(--font-sans);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--teal-deep);width:42%;}
+.spec td.value{font-family:var(--font-serif);font-size:17px;color:var(--ink);}
+/* FAQ */
+.faq{padding:90px 24px;background:var(--paper);}
+.faq h2,.faq details{max-width:760px;margin-left:auto;margin-right:auto;}
+.faq h2{font-family:var(--font-display);font-size:clamp(24px,3.5vw,34px);color:var(--ink);margin-bottom:32px;text-align:center;}
+.faq details{border-bottom:1px solid rgba(71,50,36,.18);padding:18px 0;}
+.faq summary{font-family:var(--font-sans);font-weight:500;font-size:15px;color:var(--ink);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--gold);font-size:20px;}
+.faq details[open] summary::after{content:"\2013";}
+.faq p{font-family:var(--font-serif);font-size:16px;line-height:1.5;color:var(--coffee);margin-top:14px;}
+/* Footer */
+.footer{background:var(--coffee-deep);color:var(--beige);padding:72px 24px 56px;}
+.footer__grid{display:grid;grid-template-columns:1fr;gap:40px;max-width:1100px;margin:0 auto;}
+.footer__brand .logo img{height:34px;width:auto;}
+.footer__brand .tagline{font-family:var(--font-hero);font-size:17px;letter-spacing:.02em;color:rgba(225,214,192,.82);margin:16px 0 16px;}
+.footer__social{display:flex;gap:18px;color:var(--beige);}
+.footer__col h4{font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:16px;font-weight:500;}
+.footer__col a{display:block;font-family:var(--font-sans);font-size:13px;font-weight:300;color:rgba(225,214,192,.8);margin-bottom:10px;transition:color .2s;}
+.footer__col a:hover{color:var(--cream);}
+.footer__copy{text-align:center;margin-top:48px;font-family:var(--font-sans);font-size:11px;color:rgba(225,214,192,.5);}
+@media(min-width:980px){.footer{padding:80px 80px 56px;}.footer__grid{grid-template-columns:1.4fr 1fr 1fr;gap:64px;}}
+.info__title,.spec h2,.faq h2{font-weight:600;letter-spacing:-0.01em;}
+/* ===== Raices - Estimador de envio UPS ===== */
+.shipping-estimator{background:var(--cream);border:1px solid rgba(190,159,86,.35);padding:28px 26px 22px;margin-top:32px;}
+.shipping-estimator__title{font-family:var(--font-sans);font-size:10px;text-transform:uppercase;letter-spacing:.26em;color:var(--coffee);margin-bottom:18px;}
+.shipping-estimator__row{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;}
+.shipping-estimator input{flex:1 1 160px;font-family:var(--font-sans);font-size:14px;color:var(--coffee);background:var(--paper);border:1px solid rgba(190,159,86,.5);padding:11px 14px;outline:none;min-width:0;transition:border-color .2s;}
+.shipping-estimator input::placeholder{color:rgba(71,50,36,.45);}
+.shipping-estimator input:focus{border-color:var(--gold);}
+.shipping-estimator button{font-family:var(--font-sans);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;background:var(--teal-deep);color:var(--cream);padding:11px 24px;border:none;cursor:pointer;transition:background .22s;white-space:nowrap;}
+.shipping-estimator button:hover{background:var(--teal);}
+.shipping-estimator__output{margin-top:14px;font-family:var(--font-serif);font-size:16px;font-style:italic;color:var(--teal-deep);line-height:1.4;}
+.shipping-estimator__output:empty{margin-top:0;}
+.shipping-estimator__output.error{color:#8b3a2a;font-style:normal;font-size:14px;}
+.shipping-estimator__note{margin-top:14px;font-family:var(--font-sans);font-size:11px;color:rgba(71,50,36,.55);line-height:1.5;letter-spacing:.02em;}
+@media(max-width:440px){.shipping-estimator__row{flex-direction:column;}.shipping-estimator button{width:100%;}}
+/* ===== The Travesia Experience ===== */
+.experience{background:var(--teal-deep);color:var(--cream);padding:clamp(80px,10vh,130px) 24px;text-align:center;}
+.experience__wrap{max-width:580px;margin:0 auto;}
+.experience__chapter{display:block;font-family:var(--font-sans);font-size:10px;text-transform:uppercase;letter-spacing:.28em;color:var(--gold-soft);margin-bottom:28px;}
+.experience__text{font-family:var(--font-serif);font-style:italic;font-size:clamp(18px,2.4vw,22px);line-height:1.6;color:rgba(250,248,244,.92);margin-bottom:28px;}
+.experience__sign{font-family:var(--font-hero);font-size:17px;letter-spacing:.02em;color:var(--gold-soft);margin-bottom:22px;}
+.experience__card{font-family:var(--font-sans);font-size:12px;color:rgba(250,248,244,.55);letter-spacing:.04em;border-top:1px solid rgba(190,159,86,.25);padding-top:18px;margin-top:8px;line-height:1.5;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="index.html" class="nav__logo"><img src="assets/logo-horizontal-white.png" alt="Travesía — A Story in Every Cup"></a>
+  <ul class="nav__links">
+    <li><a href="raices.html">Raíces</a></li>
+    <li><a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
+    <li><a href="index.html#film">Film</a></li>
+    <li><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+  </ul>
+  <div class="nav__right">
+    <div class="lang"><button data-lang="en" class="active">EN</button><span>/</span><button data-lang="es">ES</button></div>
+    <a href="raices.html" aria-label="Raices"><svg class="cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg></a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
+  <a href="raices.html">Raíces</a>
+  <a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a>
+  <a href="index.html#film">Film</a>
+  <a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a>
+  <div class="lang"><button data-lang="en" class="active">EN</button><span>/</span><button data-lang="es">ES</button></div>
+  <div class="mm-social">Instagram &middot; Facebook &middot; Twitter</div>
+</div>
+<section class="product">
+  <div class="product__grid">
+    <div class="gallery">
+      <div class="gallery__main"></div>
+      <div class="gallery__thumbs"><div></div><div></div><div></div></div>
+    </div>
+    <div class="info">
+      <span class="chapter" data-en="First edition - Santander, Colombia" data-es="Primera edicion - Santander, Colombia">First edition - Santander, Colombia</span>
+      <h1 class="info__title">Raíces</h1>
+      <p class="info__story" data-en="Raices is Travesia's first limited release — a specialty Colombian coffee from Santander, created as the first chapter of a journey between origin, memory, and New York." data-es="Raices es la primera edicion limitada de Travesia — un cafe colombiano de especialidad de Santander, creado como el primer capitulo de una travesia entre el origen, la memoria y New York.">Raices is Travesia's first limited release — a specialty Colombian coffee from Santander, created as the first chapter of a journey between origin, memory, and New York.</p>
+      <p class="notes" data-en="Chocolate - Panela - Red fruits - Almond" data-es="Chocolate - Panela - Frutos rojos - Almendra">Chocolate - Panela - Red fruits - Almond</p>
+      <div class="ea-box only-ea">
+        <h3 data-en="First Edition — Early Access" data-es="Primera Edicion — Early Access">First Edition — Early Access</h3>
+        <p data-en="Raices is not on sale yet. Join the priority list now to get early access to the official preorder. This is registration, not a purchase." data-es="Raices aun no esta a la venta. Unete ahora a la lista prioritaria para recibir acceso anticipado a la preventa oficial. Esto es un registro, no una compra.">Raices is not on sale yet. Join the priority list now to get early access to the official preorder. This is registration, not a purchase.</p>
+      </div>
+      <a href="index.html#early-access" class="btn-primary cta-main" data-track="PreorderClick" data-ea-en="Join Early Access" data-ea-es="Unirme al Early Access" data-po-en="Preorder Raíces" data-po-es="Reservar Raíces">Join Early Access</a>
+      <div class="price-block only-po">
+        <span class="now" data-en="Raices — First Edition · $20.99" data-es="Raices — Primera Edicion · $20.99">Raices — First Edition · $20.99</span>
+        <span class="later" data-en="Editorial Edition · $24.50 after first release" data-es="Edicion Editorial · $24.50 despues del primer lanzamiento">Editorial Edition · $24.50 after first release</span>
+      </div>
+      <p class="disclaimer only-po" data-en="Raices is Travesia's first limited release — a specialty Colombian coffee from Santander. Orders are prepared after the preorder closes and shipped according to the confirmed schedule. Shipping is calculated at checkout." data-es="Raices es la primera edicion limitada de Travesia — un cafe colombiano de especialidad de Santander. Los pedidos se preparan tras el cierre de la preventa y se envian segun el cronograma confirmado. El envio se calcula al finalizar la compra.">Raices is Travesia's first limited release — a specialty Colombian coffee from Santander.</p>
+      <div class="shipping-estimator only-po">
+        <h4 class="shipping-estimator__title" data-en="Estimate delivery time" data-es="Estimar tiempo de entrega">Estimate delivery time</h4>
+        <div class="shipping-estimator__row">
+          <input id="zipInput" type="text" inputmode="numeric" maxlength="5"
+            data-en-ph="ZIP Code" data-es-ph="Codigo ZIP" placeholder="ZIP Code">
+          <button id="zipCheck" data-en="Check" data-es="Verificar">Check</button>
+        </div>
+        <div id="zipResult" class="shipping-estimator__output" aria-live="polite"></div>
+        <p class="shipping-estimator__note"
+          data-en="Estimated UPS® Ground delivery from New York. Free shipping on orders $49+. Final shipping cost and delivery time are confirmed at checkout."
+          data-es="Entrega estimada por UPS® Ground desde New York. Envío gratis en pedidos de $49+. El costo final de envio y el tiempo de entrega se confirman al finalizar la compra.">Estimated UPS® Ground delivery from New York. Free shipping on orders $49+. Final shipping cost and delivery time are confirmed at checkout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE TRAVESIA EXPERIENCE -->
+<section class="experience">
+  <div class="experience__wrap">
+    <span class="experience__chapter" data-en="The Travesia Experience" data-es="La Experiencia Travesia">The Travesia Experience</span>
+    <p class="experience__text" data-en="Before the first sip, pause for a moment. Hold the bag with both hands, bring it slowly to your nose, close your eyes, and breathe deeply. Let the aroma awaken your memories, your origin, and the moments that live within you." data-es="Antes del primer sorbo, detente un momento. Sostен la bolsa con ambas manos, acercala lentamente a tu nariz, cierra los ojos y respira profundo. Deja que el aroma despierte tus recuerdos, tu origen y los momentos que viven en ti.">Before the first sip, pause for a moment. Hold the bag with both hands, bring it slowly to your nose, close your eyes, and breathe deeply. Let the aroma awaken your memories, your origin, and the moments that live within you.</p>
+    <p class="experience__sign">Travesia &mdash; <em>A Story in Every Cup</em></p>
+    <p class="experience__card" data-en="Each bag includes a vertical experience card with a sensory ritual on one side and preparation guidance on the other." data-es="Cada bolsa incluye una tarjeta vertical de experiencia con un ritual sensorial por un lado y una guia de preparacion por el otro.">Each bag includes a vertical experience card with a sensory ritual on one side and preparation guidance on the other.</p>
+  </div>
+</section>
+
+<section class="spec">
+  <div class="spec__wrap">
+    <h2 data-en="Product details" data-es="Ficha tecnica">Product details</h2>
+    <table>
+      <tr><td class="field" data-en="Name" data-es="Nombre">Name</td><td class="value">Raices</td></tr>
+      <tr><td class="field" data-en="Type" data-es="Tipo">Type</td><td class="value" data-en="Specialty Colombian Coffee" data-es="Cafe colombiano de especialidad">Specialty Colombian Coffee</td></tr>
+      <tr><td class="field" data-en="Origin" data-es="Origen">Origin</td><td class="value">Santander, Colombia</td></tr>
+      <tr><td class="field" data-en="Size" data-es="Tamano">Size</td><td class="value">250g / 8.8 oz</td></tr>
+      <tr><td class="field" data-en="Process" data-es="Proceso">Process</td><td class="value" data-en="Washed" data-es="Lavado">Washed</td></tr>
+      <tr><td class="field" data-en="Tasting notes" data-es="Notas de cata">Tasting notes</td><td class="value" data-en="Chocolate - Panela - Red fruits - Almond" data-es="Chocolate - Panela - Frutos rojos - Almendra">Chocolate - Panela - Red fruits - Almond</td></tr>
+      <tr class="only-ea"><td class="field" data-en="Status" data-es="Estado">Status</td><td class="value" data-en="Early Access - preorder opening soon" data-es="Early Access - preventa proximamente">Early Access - preorder opening soon</td></tr>
+      <tr class="only-po"><td class="field" data-en="Status" data-es="Estado">Status</td><td class="value" data-en="Preorder - limited to 300" data-es="Preventa - solo 300 unidades">Preorder - limited to 300</td></tr>
+      <tr class="only-po"><td class="field" data-en="Preorder Price" data-es="Precio de preventa">Preorder Price</td><td class="value">$20.99</td></tr>
+      <tr class="only-po"><td class="field" data-en="Regular Price" data-es="Precio regular">Regular Price</td><td class="value" data-en="$24.50 — Editorial Edition" data-es="$24.50 — Edicion Editorial">$24.50 — Editorial Edition</td></tr>
+      <tr class="only-po"><td class="field" data-en="Shipping" data-es="Envio">Shipping</td><td class="value" data-en="Calculated at checkout" data-es="Calculado al finalizar la compra">Calculated at checkout</td></tr>
+      <tr><td class="field" data-en="Support" data-es="Soporte">Support</td><td class="value">info@travesiacolombiancoffee.com</td></tr>
+    </table>
+  </div>
+</section>
+<section class="faq">
+  <h2 data-en="Frequently asked" data-es="Preguntas frecuentes">Frequently asked</h2>
+  <details class="only-ea"><summary data-en="Is Early Access a purchase?" data-es="Early Access es una compra?">Is Early Access a purchase?</summary><p data-en="No. Early Access is free registration for the priority list. You secure early access to the official preorder when it opens." data-es="No. El Early Access es un registro gratuito a la lista prioritaria. Aseguras acceso anticipado a la preventa oficial cuando abra.">No. Early Access is free registration for the priority list.</p></details>
+  <details class="only-ea"><summary data-en="When will the preorder open?" data-es="Cuando abrira la preventa?">When will the preorder open?</summary><p data-en="Early Access members will be the first to know by email when the official preorder opens." data-es="Los miembros del Early Access seran los primeros en enterarse por correo cuando abra la preventa oficial.">Early Access members will be the first to know by email.</p></details>
+  <details><summary data-en="Does it come ground or whole bean?" data-es="Viene molido o en grano?">Does it come ground or whole bean?</summary><p data-en="Raices is available whole bean or ground. Select your preference at checkout." data-es="Raices esta disponible en grano entero o molido. Selecciona tu preferencia al finalizar la compra.">Raices is available whole bean or ground. Select your preference at checkout.</p></details>
+  <details><summary data-en="How should I store it?" data-es="Como conservarlo?">How should I store it?</summary><p data-en="Store in a cool, dry place away from direct sunlight. Consume within 30 days of opening for best flavor. The resealable bag keeps freshness between uses." data-es="Conserva en un lugar fresco y seco, alejado de la luz directa del sol. Consume dentro de los 30 dias posteriores a la apertura para un mejor sabor. La bolsa resellable mantiene la frescura entre usos.">Store in a cool, dry place away from direct sunlight. Consume within 30 days of opening for best flavor. The resealable bag keeps freshness between uses.</p></details>
+  <details class="only-po"><summary data-en="What is preorder?" data-es="Que significa preventa?">What is preorder?</summary><p data-en="Preorder is early access to the first chapter of Travesia. You reserve Raices now; orders are processed according to the release schedule confirmed by Travesia." data-es="La preventa es acceso anticipado al primer capitulo de Travesia. Reservas Raices ahora; los pedidos se procesan segun el cronograma de lanzamiento confirmado por Travesia.">Preorder is early access to the first chapter of Travesia.</p></details>
+  <details class="only-po"><summary data-en="When will my order ship?" data-es="Cuando se enviara mi pedido?">When will my order ship?</summary><p data-en="Orders are prepared after the preorder closes and ship according to the estimated schedule confirmed by Travesia. You will be notified by email." data-es="Los pedidos se preparan tras el cierre de la preventa y se envian segun el cronograma estimado confirmado por Travesia. Te notificaremos por correo.">Orders are prepared after the preorder closes.</p></details>
+  <details class="only-po"><summary data-en="Can I cancel my preorder?" data-es="Puedo cancelar mi preventa?">Can I cancel my preorder?</summary><p data-en="Preorder cancellations may be requested before the preorder period closes by contacting info@travesiacolombiancoffee.com. Please include your order number. Requests after closure are reviewed on a case-by-case basis." data-es="Las cancelaciones de preventa pueden solicitarse antes del cierre del periodo de preventa contactando info@travesiacolombiancoffee.com. Incluye tu numero de pedido. Las solicitudes despues del cierre se revisan caso por caso.">Preorder cancellations may be requested before the preorder period closes by contacting info@travesiacolombiancoffee.com.</p></details>
+  <details class="only-po"><summary data-en="What happens if the estimated date changes?" data-es="Que pasa si cambia la fecha estimada?">What happens if the estimated date changes?</summary><p data-en="If the estimated date changes, Travesia will notify you by email with the updated schedule." data-es="Si la fecha estimada cambia, Travesia te notificara por correo con el cronograma actualizado.">If the estimated date changes, Travesia will notify you by email.</p></details>
+  <details><summary data-en="Where do you ship?" data-es="En que paises estara disponible el envio?">Where do you ship?</summary><p data-en="During the first release, Travesia will ship within the United States. Shipping options, final cost, and estimated delivery time are confirmed at checkout." data-es="Durante el primer lanzamiento, Travesia realizara envios dentro de Estados Unidos. Las opciones de envio, el costo final y el tiempo estimado de entrega se confirman al finalizar la compra.">During the first release, Travesia will ship within the United States.</p></details>
+  <details><summary data-en="How do I contact Travesia?" data-es="Como contacto a Travesia?">How do I contact Travesia?</summary><p data-en="You can contact Travesia at info@travesiacolombiancoffee.com" data-es="Puedes contactar a Travesia en info@travesiacolombiancoffee.com">You can contact Travesia at info@travesiacolombiancoffee.com</p></details>
+</section>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><div class="logo"><img src="assets/logo-horizontal-white.png" alt="Travesía — A Story in Every Cup"></div><p class="tagline">A Story in Every Cup</p><div class="footer__social">Instagram &middot; Facebook &middot; Twitter</div></div>
+    <div class="footer__col"><h4>Travesia</h4><a href="raices.html">Raíces</a><a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a><a href="index.html#film">Film</a><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a></div>
+    <div class="footer__col"><h4 data-en="Support / Legal" data-es="Soporte / Legal">Support / Legal</h4><a href="legal.html#privacy" data-en="Privacy Policy" data-es="Politica de Privacidad">Privacy Policy</a><a href="legal.html#cookies" data-en="Cookie Policy" data-es="Politica de Cookies">Cookie Policy</a><a href="legal.html#terms" data-en="Terms &amp; Conditions" data-es="Terminos y Condiciones">Terms &amp; Conditions</a><a href="legal.html#shipping" data-en="Shipping &amp; Returns" data-es="Envios y Devoluciones">Shipping &amp; Returns</a><a href="index.html#contact" data-en="Customer Service" data-es="Atencion al Cliente">Customer Service</a></div>
+  </div>
+  <p class="footer__copy">&copy; 2026 Travesia Colombian Corp. All rights reserved.</p>
+</footer>
+<script>
+const SITE_PHASE='early-access'; let LANG='en';
+const PAGE=document.body.dataset.page||'raices';
+function track(event,params){params=params||{};window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:event},params));if(window.fbq){const s={Lead:'Lead',ViewContent:'ViewContent',AddToCart:'AddToCart',Purchase:'Purchase'};if(s[event])fbq('track',s[event],params);else fbq('trackCustom',event,params);}if(window.ttq){const s={Lead:'SubmitForm',ViewContent:'ViewContent',AddToCart:'AddToCart',Purchase:'CompletePayment'};if(s[event])ttq.track(s[event],params);else ttq.track(event,params);}}
+const mm=document.getElementById('mobileMenu');
+document.getElementById('burger').addEventListener('click',()=>mm.classList.add('open'));
+document.getElementById('mmClose').addEventListener('click',()=>mm.classList.remove('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+function render(){document.documentElement.lang=LANG;const ea=SITE_PHASE==='early-access';
+  document.querySelectorAll('.only-ea').forEach(el=>el.style.display=ea?'':'none');
+  document.querySelectorAll('.only-po').forEach(el=>el.style.display=ea?'none':'');
+  document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.getAttribute('data-'+LANG));
+  document.querySelectorAll('[data-en-ph]').forEach(el=>el.placeholder=el.getAttribute('data-'+LANG+'-ph'));
+  const p=ea?'ea':'po';
+  document.querySelectorAll('.cta-main').forEach(el=>{el.innerHTML=el.getAttribute('data-'+p+'-'+LANG);el.setAttribute('href',ea?'index.html#early-access':'#');});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===LANG));}
+function setLang(l){const prev=LANG;LANG=l;render();if(l!==prev)track("LanguageSwitch",{from:prev,to:l,phase:SITE_PHASE,page:"raices"});}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.querySelectorAll('[data-track]').forEach(el=>el.addEventListener('click',function(){
+  var ev=this.getAttribute('data-track');
+  track(ev,{phase:SITE_PHASE,lang:LANG,product:'raices'});
+  if(ev==='PreorderClick'&&SITE_PHASE==='preorder')track('BeginCheckout',{phase:SITE_PHASE,lang:LANG,product:'raices',price:20.99,currency:'USD'});
+}));
+/* ===== TRAVESIA - UPS Ground delivery estimator ===== */
+(function(){
+  var zipInput=document.getElementById('zipInput');
+  var zipCheck=document.getElementById('zipCheck');
+  var zipResult=document.getElementById('zipResult');
+  if(!zipInput||!zipCheck||!zipResult)return;
+  var lastZip=null;
+  var MSGS={
+    invalid:{en:'Please enter a valid 5-digit ZIP Code.',es:'Por favor, ingresa un codigo ZIP valido de 5 digitos.'},
+    d01:{en:'UPS Ground: estimated delivery in 1-2 business days.',es:'UPS Ground: entrega estimada en 1-2 dias habiles.'},
+    d23:{en:'UPS Ground: estimated delivery in 2-3 business days.',es:'UPS Ground: entrega estimada en 2-3 dias habiles.'},
+    d45:{en:'UPS Ground: estimated delivery in 4-5 business days.',es:'UPS Ground: entrega estimada en 4-5 dias habiles.'}
+  };
+  function getKey(d){if(d==='0'||d==='1')return 'd01';if(d==='2'||d==='3'||d==='4')return 'd23';return 'd45';}
+  function renderZipResult(){
+    if(lastZip===null)return;
+    if(lastZip===''){zipResult.textContent=MSGS.invalid[LANG];zipResult.classList.add('error');return;}
+    zipResult.textContent=MSGS[getKey(lastZip[0])][LANG];zipResult.classList.remove('error');
+  }
+  function checkZip(){
+    var zip=(zipInput.value||'').replace(/\s/g,'');
+    if(!/^\d{5}$/.test(zip)){lastZip='';zipResult.textContent=MSGS.invalid[LANG];zipResult.classList.add('error');return;}
+    lastZip=zip;zipResult.textContent=MSGS[getKey(zip[0])][LANG];zipResult.classList.remove('error');
+    track('ShippingEstimateCheck',{zip_prefix:zip[0],page:PAGE,lang:LANG,phase:SITE_PHASE});
+  }
+  zipCheck.addEventListener('click',checkZip);
+  zipInput.addEventListener('keydown',function(e){if(e.key==='Enter')checkZip();});
+  var _origSetLang=setLang;
+  setLang=function(l){_origSetLang(l);renderZipResult();};
+})();
+render();track('PageView',{phase:SITE_PHASE});track('ViewContent',{content_name:'raices',phase:SITE_PHASE});
+
+</script>
+</body>
+</html>
