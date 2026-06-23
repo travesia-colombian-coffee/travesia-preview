@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travesía — A story in every cup</title>
+<meta name="description" content="Specialty Colombian coffee born between Santander and New York. Crafted to bring you back.">
+<meta property="og:title" content="Travesía — A story in every cup">
+<meta property="og:description" content="Specialty Colombian coffee born between Santander and New York. Crafted to bring you back.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/symbol-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   TRAVESÍA — Home · Paleta oficial de marca · Editorial/cinematográfico
+   Dos fases (Early Access / Preventa): ver SITE_PHASE en el script.
+   =========================================================== */
+:root{
+  --coffee:#473224; --coffee-deep:#3d2a1c; --night:#3d2a1c;
+  --teal:#018E86; --teal-deep:#09685F;
+  --gold:#BE9F56; --gold-soft:#cdb877;
+  --beige:#E1D6C0; --paper:#F2EADB; --cream:#FAF8F4; --ink:#2e2014;
+  --font-hero:'Cormorant Garamond',serif;
+  --font-display:'Cormorant Garamond',serif;
+  --font-serif:'Cormorant Garamond',serif;
+  --font-sans:'DM Sans',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+.only-ea,.only-po{display:none;}
+/* Grano cinematográfico */
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.eyebrow{font-family:var(--font-sans);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.30em;color:var(--gold);}
+.chapter{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.34em;color:var(--teal-deep);display:inline-flex;align-items:center;gap:14px;}
+.chapter::before{content:"";width:36px;height:1px;background:var(--teal-deep);}
+.seam{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.reveal{opacity:1;transform:none;}
+.reveal.in{opacity:1;transform:none;}
+/* ===== Navbar ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 24px;background:transparent;transition:background .35s ease,backdrop-filter .35s ease;}
+.nav.scrolled{background:rgba(58,39,25,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.nav__logo{justify-self:center;line-height:0;}
+.nav__logo img{height:34px;width:auto;max-width:170px;object-fit:contain;}
+.nav__links{display:none;gap:36px;justify-content:center;list-style:none;}
+.nav__links a{font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);transition:color .2s;}
+.nav__links a:hover{color:var(--gold);}
+.nav__right{display:flex;align-items:center;gap:20px;justify-self:end;}
+.lang{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;}
+.lang button{color:var(--cream);transition:color .2s;}.lang button.active{color:var(--gold);}
+.lang span{color:var(--beige);opacity:.5;}
+.cart{color:var(--cream);width:22px;height:22px;}
+.burger{color:var(--cream);justify-self:start;display:flex;flex-direction:column;gap:5px;padding:6px 0;}
+.burger span{width:24px;height:1.5px;background:currentColor;display:block;}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:var(--coffee-deep);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:32px;transform:translateX(-100%);transition:transform .35s;}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{font-family:var(--font-sans);font-size:15px;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);}
+.mobile-menu .mm-social{display:flex;gap:24px;margin-top:24px;color:var(--beige);}
+.mobile-menu .mm-close{position:absolute;top:24px;right:24px;color:var(--cream);font-size:28px;}
+@media(min-width:980px){.nav{height:80px;padding:0 80px;}.nav__logo{justify-self:start;}.nav__logo img{height:42px;max-width:230px;}.nav__links{display:flex;}.burger{display:none;}.mobile-menu{display:none;}}
+/* ===== Hero — title card cinematográfico ===== */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px;overflow:hidden;
+  background:radial-gradient(120% 80% at 50% 30%,rgba(1,142,134,0) 30%,rgba(58,39,25,.28) 100%),radial-gradient(140% 110% at 50% 8%,#15a89d 0%,var(--teal) 30%,var(--teal-deep) 62%,#0b5d54 100%);}
+.hero__bar{display:none;}
+.hero__bar.top{top:0;border-bottom:1px solid rgba(190,159,86,.4);}
+.hero__bar.bottom{bottom:0;border-top:1px solid rgba(190,159,86,.4);}
+.hero__inner{position:relative;z-index:2;max-width:640px;}
+.hero__eyebrow{color:var(--gold-soft);margin-bottom:24px;opacity:0;animation:rise 1.4s ease .5s forwards;}
+.hero h1{font-family:var(--font-hero);font-weight:400;color:var(--cream);font-size:clamp(46px,9.5vw,104px);line-height:1.0;opacity:0;animation:rise 1.6s ease .8s forwards;}
+.hero__sub{font-family:var(--font-serif);font-style:italic;font-weight:300;color:rgba(250,248,244,.82);font-size:clamp(16px,2.3vw,21px);margin:22px auto 0;max-width:36ch;opacity:0;animation:rise 1.6s ease 1.3s forwards;}
+.hero__actions{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:34px;opacity:0;animation:rise 1.6s ease 1.7s forwards;}
+@keyframes rise{to{opacity:1;transform:none;}}
+.btn-primary{font-family:var(--font-sans);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;background:var(--gold);color:var(--coffee);padding:16px 38px;border-radius:0;display:inline-block;transition:background .25s;}
+.btn-primary:hover{background:var(--gold-soft);}
+.btn-secondary{font-family:var(--font-sans);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;background:transparent;color:var(--cream);padding:16px 38px;border-radius:0;border:1px solid rgba(250,248,244,.45);display:inline-block;transition:border-color .25s;}
+.btn-secondary:hover{border-color:var(--cream);}
+@media(min-width:980px){.hero h1{font-size:clamp(70px,8vw,104px);}}
+/* ===== Capítulo I — Creencia (papel) ===== */
+.belief{padding:clamp(96px,15vh,190px) 24px;text-align:center;background:var(--beige);}
+.belief .chapter{margin-bottom:38px;}
+.belief .chapter,.belief blockquote,.belief .rule{position:relative;z-index:2;}
+.belief blockquote{font-family:var(--font-serif);font-weight:300;font-size:clamp(24px,4vw,40px);line-height:1.32;color:var(--ink);max-width:760px;margin:0 auto;}
+.belief blockquote .accent{color:var(--teal-deep);font-style:italic;}
+.belief .rule{width:54px;height:1px;background:var(--teal-deep);border:0;margin:46px auto 0;}
+/* ===== Capítulo II — Raíces (café, cinematográfico) ===== */
+.origin{position:relative;background:var(--coffee);color:var(--beige);padding:clamp(90px,12vh,150px) 24px;overflow:hidden;}
+.origin::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 80% at 30% 30%,rgba(0,0,0,0) 40%,rgba(58,39,25,.28) 100%);pointer-events:none;}
+.origin__grid{position:relative;max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:50px;align-items:center;}
+.origin__still{aspect-ratio:3/4;background:radial-gradient(70% 60% at 50% 38%,#5e4230,var(--coffee-deep));border:1px solid rgba(190,159,86,.3);display:flex;align-items:flex-end;padding:24px;}
+.lowerthird{font-family:var(--font-sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);display:flex;align-items:center;gap:12px;}
+.lowerthird::before{content:"";width:18px;height:1px;background:var(--gold);}
+.origin__info .chapter{color:var(--gold);margin-bottom:22px;}
+.origin__info .chapter::before{background:var(--gold);}
+.origin__info h2{font-family:var(--font-display);font-size:clamp(36px,5.5vw,58px);color:var(--cream);margin-bottom:22px;line-height:1.04;}
+.origin__info p{font-family:var(--font-serif);font-size:clamp(18px,2vw,21px);line-height:1.55;color:rgba(225,214,192,.9);max-width:44ch;}
+.origin__info p .dropcap{float:left;font-family:var(--font-hero);font-size:3.2em;line-height:.8;color:var(--gold-soft);padding:6px 14px 0 0;}
+.origin__notes{font-family:var(--font-sans);font-size:12px;letter-spacing:.06em;color:var(--gold-soft);margin:26px 0;}
+.ea-note{font-family:var(--font-serif);font-style:italic;font-size:17px;color:rgba(225,214,192,.85);margin-bottom:22px;max-width:46ch;}
+.price-line{margin-bottom:6px;}
+.price-line .now{font-family:var(--font-serif);font-size:23px;color:var(--cream);}
+.price-line .later{display:block;font-family:var(--font-sans);font-size:12px;font-weight:300;color:rgba(225,214,192,.6);letter-spacing:.04em;margin-top:6px;}
+@media(min-width:920px){.origin__grid{grid-template-columns:.85fr 1.15fr;gap:90px;}}
+/* ===== Interludio — tributo (teal inmersión) ===== */
+.tribute{position:relative;padding:clamp(120px,18vh,210px) 24px;text-align:center;color:var(--cream);overflow:hidden;background:radial-gradient(120% 100% at 50% 40%,var(--teal) 0%,var(--teal-deep) 55%,#0b5d54 100%);}
+.tribute::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,rgba(0,0,0,0) 45%,rgba(11,93,84,.3) 100%);pointer-events:none;}
+.tribute p{position:relative;max-width:660px;margin:0 auto;font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(21px,3.2vw,32px);line-height:1.42;}
+.tribute p .accent{font-style:normal;font-weight:500;color:var(--gold-soft);}
+/* ===== Capítulo III — Film (papel) ===== */
+.film{padding:clamp(90px,12vh,150px) 24px;text-align:center;background:var(--paper);}
+.film .chapter{justify-content:center;margin-bottom:24px;}
+.film__title{font-family:var(--font-display);font-size:clamp(28px,4vw,44px);color:var(--ink);max-width:600px;margin:0 auto 44px;line-height:1.15;}
+.film__player{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:linear-gradient(135deg,#018E86,#0b5d54);display:flex;align-items:center;justify-content:center;border:1px solid rgba(190,159,86,.3);}
+.film__play{width:74px;height:74px;border-radius:50%;border:1px solid rgba(250,248,244,.7);display:flex;align-items:center;justify-content:center;color:var(--cream);transition:background .25s;}
+.film__play:hover{background:rgba(250,248,244,.12);}
+.film .btn-secondary{margin-top:34px;border-color:var(--teal-deep);color:var(--teal-deep);}
+.film .btn-secondary:hover{border-color:var(--coffee);color:var(--coffee);}
+/* ===== Early Access (solo EA) ===== */
+.ea{position:relative;background:var(--coffee-deep);color:var(--beige);padding:clamp(90px,12vh,150px) 24px;}
+.ea__wrap{max-width:560px;margin:0 auto;text-align:center;}
+.ea .chapter{justify-content:center;color:var(--gold);margin-bottom:18px;}
+.ea .chapter::before{background:var(--gold);}
+.ea h2{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);color:var(--cream);margin-bottom:16px;}
+.ea__lead{font-family:var(--font-serif);font-size:18px;color:rgba(225,214,192,.85);margin-bottom:34px;}
+.ea form{display:grid;gap:14px;text-align:left;}
+.ea label{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-soft);display:block;margin-bottom:6px;}
+.ea input,.ea select{width:100%;background:rgba(0,0,0,.22);border:1px solid rgba(190,159,86,.3);color:var(--cream);padding:13px 14px;font-family:var(--font-sans);font-size:14px;}
+.ea input::placeholder{color:rgba(225,214,192,.5);}
+.ea select{appearance:none;}
+.ea .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ea .consent{display:flex;gap:10px;align-items:flex-start;font-family:var(--font-sans);font-size:11px;color:rgba(225,214,192,.7);line-height:1.4;}
+.ea .consent input{width:auto;margin-top:2px;}
+.ea button[type=submit]{margin-top:8px;background:var(--gold);color:var(--coffee);padding:15px;font-family:var(--font-sans);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;}
+.ea button[type=submit]:hover{background:var(--gold-soft);}
+.ea__thanks{display:none;}
+.ea__thanks h2{margin-bottom:12px;}
+.ea__thanks p{font-family:var(--font-serif);font-size:18px;color:rgba(225,214,192,.85);}
+/* ===== Newsletter (papel) ===== */
+.newsletter{background:var(--beige);padding:clamp(80px,10vh,120px) 24px;text-align:center;}
+.newsletter h2{font-family:var(--font-display);font-size:clamp(26px,3.5vw,36px);color:var(--ink);margin-bottom:16px;}
+.newsletter p{font-family:var(--font-serif);font-size:18px;color:var(--coffee);margin:0 auto 28px;max-width:520px;}
+.newsletter__form{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+.newsletter__form input{flex:1;min-width:200px;background:transparent;border:1px solid rgba(71,50,36,.35);color:var(--ink);padding:14px 16px;font-family:var(--font-sans);font-size:14px;}
+.newsletter__form input::placeholder{color:rgba(71,50,36,.5);}
+.newsletter__form button{background:var(--teal-deep);color:var(--cream);padding:14px 28px;font-family:var(--font-sans);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;}
+.newsletter__form button:hover{background:var(--teal);}
+.consent-inline{display:block;margin-top:16px;font-family:var(--font-sans);font-size:11px;color:var(--coffee);}
+/* ===== Footer ===== */
+.footer{background:var(--coffee-deep);color:var(--beige);padding:72px 24px 56px;}
+.footer__grid{display:grid;grid-template-columns:1fr;gap:40px;max-width:1100px;margin:0 auto;}
+.footer__brand .logo img{height:34px;width:auto;}
+.footer__brand .tagline{font-family:var(--font-hero);font-size:17px;letter-spacing:.02em;color:rgba(225,214,192,.82);margin:16px 0 16px;}
+.footer__social{display:flex;gap:18px;color:var(--beige);}
+.footer__col h4{font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:16px;font-weight:500;}
+.footer__col a{display:block;font-family:var(--font-sans);font-size:13px;font-weight:300;color:rgba(225,214,192,.8);margin-bottom:10px;transition:color .2s;}
+.footer__col a:hover{color:var(--cream);}
+.footer__copy{text-align:center;margin-top:48px;font-family:var(--font-sans);font-size:11px;color:rgba(225,214,192,.5);}
+@media(min-width:980px){.footer{padding:80px 80px 56px;}.footer__grid{grid-template-columns:1.4fr 1fr 1fr;gap:64px;}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}.hero__eyebrow,.hero h1,.hero__sub,.hero__actions{animation:none;opacity:1;transform:none;}html{scroll-behavior:auto;}}
+.origin__info h2,.film__title,.ea h2,.newsletter h2{font-weight:600;letter-spacing:-0.01em;}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="index.html" class="nav__logo"><img src="assets/logo-horizontal-white.png" alt="Travesía — A Story in Every Cup"></a>
+  <ul class="nav__links">
+    <li><a href="#raices">Raíces</a></li>
+    <li><a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
+    <li><a href="#film">Film</a></li>
+    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+  </ul>
+  <div class="nav__right">
+    <div class="lang"><button data-lang="en" class="active">EN</button><span>/</span><button data-lang="es">ES</button></div>
+    <a href="raices.html" aria-label="Raices"><svg class="cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg></a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
+  <a href="#raices">Raíces</a>
+  <a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a>
+  <a href="#film">Film</a>
+  <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+  <div class="lang"><button data-lang="en" class="active">EN</button><span>/</span><button data-lang="es">ES</button></div>
+  <div class="mm-social">Instagram · Facebook · Twitter</div>
+</div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero__bar top"></div>
+  <div class="hero__inner">
+    <p class="eyebrow hero__eyebrow">Colombia · New York</p>
+    <h1 data-en="A story<br>in every cup." data-es="Una historia<br>en cada taza.">A story<br>in every cup.</h1>
+    <p class="hero__sub" data-en="Specialty coffee born between Santander and New York. Crafted to bring you back." data-es="Café de especialidad entre Santander y New York. Hecho para traerte de vuelta.">Specialty coffee born between Santander and New York. Crafted to bring you back.</p>
+    <div class="hero__actions">
+      <a href="#early-access" class="btn-primary cta-main" data-track="PreorderClick" data-ea-en="Join Early Access" data-ea-es="Unirme al Early Access" data-po-en="Preorder Raíces" data-po-es="Reservar Raíces">Join Early Access</a>
+      <a href="#film" class="btn-secondary" data-track="VideoClick" data-en="Watch the Film" data-es="Ver el Film">Watch the Film</a>
+    </div>
+  </div>
+  <div class="hero__bar bottom"></div>
+</header>
+<!-- CAPÍTULO I — CREENCIA -->
+<section class="belief">
+  <span class="chapter" data-en="Chapter I — The Belief" data-es="Capítulo I — La Creencia">Chapter I — The Belief</span>
+  <blockquote data-en='We believe the aroma of a cup can <span class="accent">awaken memories</span>, shorten distances, and remind us of who we are.' data-es='Creemos que el aroma de una taza puede <span class="accent">despertar memorias</span>, acortar distancias y recordarnos quiénes somos.'>We believe the aroma of a cup can <span class="accent">awaken memories</span>, shorten distances, and remind us of who we are.</blockquote>
+  <hr class="rule">
+</section>
+<!-- CAPÍTULO II — RAÍCES -->
+<section class="origin" id="raices">
+  <div class="origin__grid">
+    <div class="origin__still reveal"><span class="lowerthird">Raíces · 250g · Santander</span></div>
+    <div class="origin__info reveal">
+      <span class="chapter" data-en="Chapter II — The Origin" data-es="Capítulo II — El Origen">Chapter II — The Origin</span>
+      <h2>Raíces</h2>
+      <p data-en='<span class="dropcap">N</span>ot just the name of an edition. It is the point from which Travesía began to move — the first chapter of a longer journey.' data-es='<span class="dropcap">N</span>o es solo el nombre de una edición. Es el punto desde donde Travesía empezó a navegar — el primer capítulo de un viaje más largo.'><span class="dropcap">N</span>ot just the name of an edition. It is the point from which Travesía began to move — the first chapter of a longer journey.</p>
+      <p class="origin__notes" data-en="Chocolate · Panela · Red fruits · Almond" data-es="Chocolate · Panela · Frutos rojos · Almendra">Chocolate · Panela · Red fruits · Almond</p>
+      <p class="ea-note only-ea" data-en="The first edition is in preparation. Join the priority list for early access to the official preorder." data-es="La primera edición está en preparación. Únete a la lista prioritaria para recibir acceso anticipado a la preventa oficial.">The first edition is in preparation. Join the priority list for early access to the official preorder.</p>
+      <div class="price-line only-po">
+        <span class="now" data-en="Raíces — First Edition · $20.99" data-es="Raíces — Primera Edición · $20.99">Raíces — First Edition · $20.99</span>
+        <span class="later" data-en="Editorial Edition · $24.50 after first release" data-es="Edición Editorial · $24.50 después del primer lanzamiento">Editorial Edition · $24.50 after first release</span>
+      </div>
+      <a href="#early-access" class="btn-primary cta-main" data-track="PreorderClick" data-ea-en="Join Early Access" data-ea-es="Unirme al Early Access" data-po-en="Preorder Raíces" data-po-es="Reservar Raíces" style="margin-top:30px">Join Early Access</a>
+    </div>
+  </div>
+</section>
+<!-- INTERLUDIO — TRIBUTO -->
+<section class="tribute reveal">
+  <p data-en='Travesía is <span class="accent">not just coffee</span>. It is a tribute to those who migrate, to those who dream, to those who love from afar.' data-es='Travesía <span class="accent">no es solo café</span>. Es un tributo a quienes migran, a quienes sueñan, a quienes aman desde lejos.'>Travesía is <span class="accent">not just coffee</span>. It is a tribute to those who migrate, to those who dream, to those who love from afar.</p>
+</section>
+<!-- CAPÍTULO III — FILM -->
+<section class="film reveal" id="film">
+  <span class="chapter" data-en="Chapter III — The Film" data-es="Capítulo III — El Film">Chapter III — The Film</span>
+  <h2 class="film__title" data-en="Before being a store, Travesía was a question." data-es="Antes de ser una tienda, Travesía fue una pregunta.">Before being a store, Travesía was a question.</h2>
+  <div class="film__player"><button class="film__play" data-track="VideoClick" aria-label="Play film"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></div>
+  <a href="our-story.html#film" class="btn-secondary" data-track="VideoClick" data-en="Watch the Film" data-es="Ver el Film">Watch the Film</a>
+</section>
+<!-- EARLY ACCESS -->
+<section class="ea only-ea" id="early-access">
+  <div class="ea__wrap">
+    <div id="eaForm">
+      <span class="chapter" data-en="Raíces — Early Access" data-es="Raíces — Early Access">Raíces — Early Access</span>
+      <h2 data-en="Join the priority list." data-es="Únete a la lista prioritaria.">Join the priority list.</h2>
+      <p class="ea__lead" data-en="Early Access members receive updates, priority access, and direct word on the official preorder opening." data-es="Los miembros del Early Access reciben actualizaciones, acceso prioritario y comunicación directa sobre la apertura de la preventa.">Early Access members receive updates, priority access, and direct word on the official preorder opening.</p>
+      <form id="eaFormEl" novalidate>
+        <div><label data-en="Name" data-es="Nombre">Name</label><input type="text" name="name" required data-en-ph="Your name" data-es-ph="Tu nombre" placeholder="Your name"></div>
+        <div><label data-en="Email" data-es="Correo electrónico">Email</label><input type="email" name="email" required data-en-ph="you@email.com" data-es-ph="tu@correo.com" placeholder="you@email.com"></div>
+        <div class="row2">
+          <div><label data-en="City" data-es="Ciudad">City</label><input type="text" name="city" data-en-ph="City" data-es-ph="Ciudad" placeholder="City"></div>
+          <div><label data-en="Country" data-es="País">Country</label><input type="text" name="country" data-en-ph="Country" data-es-ph="País" placeholder="Country"></div>
+        </div>
+        <div>
+          <label data-en="What connects you most with Travesía?" data-es="¿Qué te conecta más con Travesía?">What connects you most with Travesía?</label>
+          <select name="connection">
+            <option value="colombian" data-en="Colombian coffee" data-es="Café colombiano">Colombian coffee</option>
+            <option value="origin" data-en="Santander origin" data-es="Origen Santander">Santander origin</option>
+            <option value="diaspora" data-en="Nostalgia / diaspora" data-es="Nostalgia / diáspora">Nostalgia / diaspora</option>
+            <option value="gift" data-en="A gift" data-es="Regalo">A gift</option>
+            <option value="specialty" data-en="Specialty coffee" data-es="Specialty coffee">Specialty coffee</option>
+            <option value="film" data-en="The story / film" data-es="Historia / Film">The story / film</option>
+            <option value="design" data-en="Design / brand" data-es="Diseño / marca">Design / brand</option>
+            <option value="other" data-en="Other" data-es="Otro">Other</option>
+          </select>
+        </div>
+        <label class="consent"><input type="checkbox" name="consent" required><span data-en="I authorize Travesía to store my data to send me updates about Early Access and the Raíces preorder." data-es="Autorizo a Travesía a guardar mis datos para enviarme actualizaciones sobre el Early Access y la preventa de Raíces.">I authorize Travesía to store my data to send me updates about Early Access and the Raíces preorder.</span></label>
+        <button type="submit" data-en="Join Early Access" data-es="Unirme al Early Access">Join Early Access</button>
+      </form>
+    </div>
+    <div class="ea__thanks" id="eaThanks">
+      <h2 data-en="Thank you." data-es="Gracias.">Thank you.</h2>
+      <p data-en="Thank you for joining the Raíces Early Access. We'll send updates and early access when the official preorder opens." data-es="Gracias por unirte al Early Access de Raíces. Te enviaremos actualizaciones y acceso anticipado cuando abramos la preventa oficial.">Thank you for joining the Raíces Early Access. We'll send updates and early access when the official preorder opens.</p>
+    </div>
+  </div>
+</section>
+<!-- NEWSLETTER -->
+<section class="newsletter" id="contact">
+  <h2 data-en="Join the Journey." data-es="Únete a la Travesía.">Join the Journey.</h2>
+  <p data-en="Receive stories, releases, and preorder updates." data-es="Recibe historias, lanzamientos y actualizaciones de preventa.">Receive stories, releases, and preorder updates.</p>
+  <div class="newsletter__form">
+    <input type="email" data-en-ph="Your email" data-es-ph="Tu correo" placeholder="Your email">
+    <button data-en="Subscribe" data-es="Suscribirse">Subscribe</button>
+  </div>
+  <label class="consent-inline"><input type="checkbox"> <span data-en="I authorize Travesía to store my data to send me updates." data-es="Autorizo a Travesía a guardar mis datos para enviarme actualizaciones.">I authorize Travesía to store my data to send me updates.</span></label>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><div class="logo"><img src="assets/logo-horizontal-white.png" alt="Travesía — A Story in Every Cup"></div><p class="tagline">A Story in Every Cup</p><div class="footer__social">Instagram · Facebook · Twitter</div></div>
+    <div class="footer__col"><h4>Travesía</h4><a href="#raices">Raíces</a><a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a><a href="#film">Film</a><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></div>
+    <div class="footer__col"><h4 data-en="Support / Legal" data-es="Soporte / Legal">Support / Legal</h4><a href="legal.html#privacy" data-en="Privacy Policy" data-es="Política de Privacidad">Privacy Policy</a><a href="legal.html#cookies" data-en="Cookie Policy" data-es="Política de Cookies">Cookie Policy</a><a href="legal.html#terms" data-en="Terms &amp; Conditions" data-es="Términos y Condiciones">Terms &amp; Conditions</a><a href="legal.html#shipping" data-en="Shipping &amp; Returns" data-es="Envíos y Devoluciones">Shipping &amp; Returns</a><a href="#contact" data-en="Customer Service" data-es="Atención al Cliente">Customer Service</a></div>
+  </div>
+  <p class="footer__copy">© 2026 Travesía Colombian Corp. All rights reserved.</p>
+</footer>
+<script>
+const SITE_PHASE = 'early-access'; /* 'early-access' | 'preorder' — mantener igual en las 3 páginas */
+let LANG = 'en';
+function track(event, params){params=params||{};window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:event},params));if(window.fbq){const s={Lead:'Lead',ViewContent:'ViewContent',AddToCart:'AddToCart',Purchase:'Purchase'};if(s[event])fbq('track',s[event],params);else fbq('trackCustom',event,params);}if(window.ttq){const s={Lead:'SubmitForm',ViewContent:'ViewContent',AddToCart:'AddToCart',Purchase:'CompletePayment'};if(s[event])ttq.track(s[event],params);else ttq.track(event,params);}}
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>80),{passive:true});
+const mm=document.getElementById('mobileMenu');
+document.getElementById('burger').addEventListener('click',()=>mm.classList.add('open'));
+document.getElementById('mmClose').addEventListener('click',()=>mm.classList.remove('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+function render(){
+  document.documentElement.lang=LANG;
+  const ea=SITE_PHASE==='early-access';
+  document.querySelectorAll('.only-ea').forEach(el=>el.style.display=ea?'':'none');
+  document.querySelectorAll('.only-po').forEach(el=>el.style.display=ea?'none':'');
+  document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.getAttribute('data-'+LANG));
+  document.querySelectorAll('[data-en-ph]').forEach(el=>el.setAttribute('placeholder',el.getAttribute('data-'+LANG+'-ph')));
+  const p=ea?'ea':'po';
+  document.querySelectorAll('.cta-main').forEach(el=>{el.innerHTML=el.getAttribute('data-'+p+'-'+LANG);el.setAttribute('href',ea?'#early-access':'raices.html');});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===LANG));
+}
+function setLang(l){const prev=LANG;LANG=l;render();if(l!==prev)track("LanguageSwitch",{from:prev,to:l,phase:SITE_PHASE,page:"home"});}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.querySelectorAll('[data-track]').forEach(el=>el.addEventListener('click',()=>track(el.getAttribute('data-track'),{phase:SITE_PHASE,lang:LANG})));
+const eaFormEl=document.getElementById('eaFormEl');
+if(eaFormEl){eaFormEl.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  const f=e.target;
+  f.email.style.borderColor='';
+  const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Validaciones
+  if(!f.name.value.trim()){alert(LANG==='es'?'Por favor, ingresa tu nombre.':'Please enter your name.');f.name.focus();return;}
+  if(!emailRegex.test(f.email.value.trim())){f.email.style.borderColor='#ff4d4d';alert(LANG==='es'?'Por favor, ingresa un correo electrónico válido.':'Please enter a valid email address.');f.email.focus();return;}
+  if(!f.consent.checked){alert(LANG==='es'?'Debes aceptar la política de privacidad.':'You must accept the privacy policy.');return;}
+  // Klaviyo (requiere el snippet de Klaviyo con tu Public API Key cargado en el <head>)
+  if(window._learnq){
+    window._learnq.push(['identify',{'$email':f.email.value.trim(),'$first_name':f.name.value.trim(),'City':f.city.value.trim(),'Country':f.country.value.trim(),'Connection':f.connection.value}]);
+    window._learnq.push(['track','Subscribed to Waitlist']);
+  }
+  // Analítica (GA4 / Meta / TikTok) — se mantiene además de Klaviyo
+  track('EarlyAccessSubmit',{phase:SITE_PHASE,lang:LANG,connection:f.connection.value});
+  track('Lead',{source:'early_access'});
+  // Pantalla de gracias
+  document.getElementById('eaForm').style.display='none';
+  const t=document.getElementById('eaThanks');t.style.display='block';t.scrollIntoView({behavior:'smooth',block:'center'});
+});}
+
+/* Newsletter */
+(function(){
+  var nf=document.querySelector('.newsletter__form');
+  if(!nf)return;
+  var btn=nf.querySelector('button');
+  var inp=nf.querySelector('input[type="email"]');
+  var consent=document.querySelector('.consent-inline input');
+  var thanks=document.createElement('p');
+  thanks.style.cssText='font-family:var(--font-sans);font-size:13px;color:var(--teal-deep);margin-top:18px;';
+  thanks.setAttribute("data-en","Thank you for joining. We\'ll be in touch.");
+  thanks.setAttribute('data-es','Gracias por unirte. Estaremos en contacto.');
+  thanks.style.display='none';
+  nf.parentNode.insertBefore(thanks,nf.nextSibling);
+  btn.addEventListener('click',function(){
+    if(!inp.value||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value)){
+      inp.style.borderColor='#9b3b2f';inp.focus();return;
+    }
+    inp.style.borderColor='';
+    if(consent&&!consent.checked){alert(LANG==='es'?'Por favor acepta los términos.':'Please accept the terms.');return;}
+    if(window._learnq){
+      window._learnq.push(['identify',{'$email':inp.value.trim()}]);
+      window._learnq.push(['track','Newsletter Signup']);
+    }
+    track('NewsletterSubmit',{phase:SITE_PHASE,lang:LANG});
+    nf.style.display='none';
+    thanks.style.display='block';
+    thanks.innerHTML=thanks.getAttribute('data-'+LANG);
+  });
+})();
+
+render();
+track('PageView',{phase:SITE_PHASE});track('ViewContent',{content_name:'home',phase:SITE_PHASE});
+/* Additional events: ParticipantsSectionView, EventGalleryView tracked on our-story.html via IntersectionObserver */
+const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:0.14});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),1500);
+</script>
+</body>
+</html>

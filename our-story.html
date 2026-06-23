@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — Travesía</title>
+<meta name="description" content="Travesía is the journey we share with those who dared to cross borders.">
+<link rel="icon" type="image/png" href="assets/symbol-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* TRAVESIA — Our Story */
+:root{--coffee:#473224;--coffee-deep:#3d2a1c;--teal:#018E86;--teal-deep:#09685F;--gold:#BE9F56;--gold-soft:#cdb877;--beige:#E1D6C0;--paper:#F2EADB;--cream:#FAF8F4;--ink:#2e2014;--font-hero:'Cormorant Garamond',serif;--font-display:'Cormorant Garamond',serif;--font-serif:'Cormorant Garamond',serif;--font-sans:'DM Sans',system-ui,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;object-fit:cover;}a{color:inherit;text-decoration:none;}button{font-family:inherit;cursor:pointer;border:none;background:none;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.chapter{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.34em;color:var(--teal-deep);display:inline-flex;align-items:center;gap:14px;}
+.chapter::before{content:"";width:36px;height:1px;background:var(--teal-deep);}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 24px;background:rgba(58,39,25,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.nav__logo{justify-self:center;line-height:0;}.nav__logo img{height:34px;width:auto;max-width:170px;object-fit:contain;}
+.nav__links{display:none;gap:36px;justify-content:center;list-style:none;}
+.nav__links a{font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);transition:color .2s;}
+.nav__links a:hover{color:var(--gold);}
+.nav__right{display:flex;align-items:center;gap:20px;justify-self:end;}
+.lang{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;}
+.lang button{color:var(--cream);transition:color .2s;}.lang button.active{color:var(--gold);}.lang span{color:var(--beige);opacity:.5;}
+.cart{color:var(--cream);width:22px;height:22px;}
+.burger{color:var(--cream);justify-self:start;display:flex;flex-direction:column;gap:5px;padding:6px 0;}
+.burger span{width:24px;height:1.5px;background:currentColor;display:block;}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:var(--coffee-deep);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:32px;transform:translateX(-100%);transition:transform .35s;}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{font-family:var(--font-sans);font-size:15px;text-transform:uppercase;letter-spacing:.12em;color:var(--cream);}
+.mobile-menu .mm-social{display:flex;gap:24px;margin-top:24px;color:var(--beige);}
+.mobile-menu .mm-close{position:absolute;top:24px;right:24px;color:var(--cream);font-size:28px;}
+@media(min-width:980px){.nav{height:80px;padding:0 80px;}.nav__logo{justify-self:start;}.nav__logo img{height:42px;max-width:230px;}.nav__links{display:flex;}.burger{display:none;}.mobile-menu{display:none;}}
+.btn-primary{font-family:var(--font-sans);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;background:var(--gold);color:var(--coffee);padding:16px 38px;border-radius:0;display:inline-block;transition:background .25s;}
+.btn-primary:hover{background:var(--gold-soft);}
+/* Opening */
+.opening{position:relative;min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px;overflow:hidden;background:radial-gradient(120% 80% at 50% 30%,rgba(1,142,134,0) 30%,rgba(58,39,25,.28) 100%),radial-gradient(140% 110% at 50% 8%,#15a89d 0%,var(--teal) 30%,var(--teal-deep) 62%,#0b5d54 100%);}
+.opening__logo{position:relative;z-index:2;}.opening__logo img{width:170px;max-width:55%;height:auto;margin:0 auto 28px;}
+.opening__tagline{position:relative;z-index:2;font-family:var(--font-hero);font-size:clamp(18px,2.4vw,24px);letter-spacing:.02em;color:var(--gold-soft);margin:2px 0 30px;}
+.opening p{position:relative;z-index:2;max-width:600px;font-family:var(--font-serif);font-style:italic;font-size:clamp(19px,2.6vw,24px);line-height:1.45;color:rgba(250,248,244,.9);}
+.opening .roots-link{position:relative;z-index:2;display:inline-block;margin-top:28px;font-family:var(--font-sans);font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--gold-soft);}
+/* River */
+.river{position:relative;min-height:62vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(155deg,#1f8079,#0b5d54);overflow:hidden;}
+.river::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,rgba(0,0,0,0) 40%,rgba(11,93,84,.3) 100%);}
+.river p{position:relative;z-index:2;max-width:560px;padding:0 24px;font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,3vw,26px);line-height:1.45;color:var(--cream);}
+/* Film */
+.film{padding:clamp(90px,12vh,150px) 24px;text-align:center;background:var(--paper);}
+.film .chapter{justify-content:center;margin-bottom:24px;}
+.film p{max-width:560px;margin:0 auto 36px;font-family:var(--font-serif);font-size:18px;color:var(--coffee);}
+.film__player{position:relative;aspect-ratio:16/9;max-width:880px;margin:0 auto;background:linear-gradient(135deg,#018E86,#0b5d54);display:flex;align-items:center;justify-content:center;border:1px solid rgba(190,159,86,.3);}
+.film__play{width:74px;height:74px;border-radius:50%;border:1px solid rgba(250,248,244,.7);display:flex;align-items:center;justify-content:center;color:var(--cream);transition:background .25s;}
+.film__play:hover{background:rgba(250,248,244,.12);}
+/* The First Gathering */
+.gathering{background:var(--coffee);color:var(--beige);padding:clamp(90px,12vh,150px) 24px;}
+.gathering .chapter{justify-content:center;color:var(--gold);display:flex;margin-bottom:18px;}
+.gathering .chapter::before{background:var(--gold);}
+.gathering__title{font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:600;letter-spacing:-0.01em;color:var(--cream);text-align:center;margin-bottom:16px;}
+.gathering__sub{font-family:var(--font-serif);font-style:italic;font-size:clamp(16px,2vw,19px);color:rgba(225,214,192,.82);text-align:center;max-width:560px;margin:0 auto 52px;line-height:1.5;}
+/* Gallery grid: 1 large + 5 secondary */
+.gathering__grid{max-width:1120px;margin:0 auto;display:grid;gap:14px;grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+.gathering__grid .g-main{grid-column:1/2;grid-row:1/3;}
+.gathering__grid .g-side{grid-column:2/3;}
+.g-img{position:relative;overflow:hidden;background:linear-gradient(160deg,#09685F,#3d2a1c);}
+.g-img.g-main{aspect-ratio:4/5;}
+.g-img.g-side{aspect-ratio:4/5;}
+.g-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.g-img:hover img{transform:scale(1.03);}
+.g-img__ph{width:100%;height:100%;background:linear-gradient(145deg,#09685F 0%,#3d2a1c 100%);display:flex;align-items:center;justify-content:center;}
+.g-img__ph::after{content:"";display:block;width:32px;height:32px;border-radius:50%;border:1px solid rgba(190,159,86,.4);}
+@media(min-width:720px){
+  .gathering__grid{grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto auto;}
+  .gathering__grid .g-main{grid-column:1/2;grid-row:1/3;}
+  .gathering__grid .g-side{grid-column:auto;grid-row:auto;}
+}
+@media(max-width:480px){
+  .gathering__grid{grid-template-columns:1fr;grid-template-rows:auto;}
+  .gathering__grid .g-main{grid-column:1/2;grid-row:auto;}
+  .g-img.g-main{aspect-ratio:4/3;}
+}
+.gathering__note{text-align:center;margin-top:32px;font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(225,214,192,.45);}
+/* Participants */
+.participants{background:var(--paper);padding:clamp(90px,12vh,150px) 24px;}
+.participants .chapter{justify-content:center;display:flex;margin-bottom:18px;}
+.participants__title{font-family:var(--font-display);font-size:clamp(30px,4.5vw,46px);font-weight:600;letter-spacing:-0.01em;color:var(--ink);text-align:center;margin-bottom:12px;}
+.participants__sub{font-family:var(--font-serif);font-style:italic;font-size:17px;color:var(--coffee);text-align:center;max-width:480px;margin:0 auto 52px;line-height:1.5;}
+.participants__grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+@media(min-width:600px){.participants__grid{grid-template-columns:repeat(3,1fr);gap:32px;}}
+@media(min-width:920px){.participants__grid{grid-template-columns:repeat(5,1fr);gap:28px;}}
+.person{display:flex;flex-direction:column;}
+.person__photo{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(145deg,#473224,#3d2a1c);margin-bottom:14px;border:1px solid rgba(190,159,86,.15);}
+.person__photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.25);}
+.person__photo .person__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:clamp(28px,4vw,38px);color:rgba(225,214,192,.25);letter-spacing:.04em;}
+.person__flag{font-size:18px;line-height:1;margin-bottom:6px;}
+.person__name{font-family:var(--font-display);font-size:15px;color:var(--ink);line-height:1.2;margin-bottom:3px;overflow-wrap:break-word;word-break:break-word;}
+.person__country{font-family:var(--font-sans);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--teal-deep);}
+.person__label{font-family:var(--font-serif);font-style:italic;font-size:13px;color:rgba(71,50,36,.65);margin-top:5px;line-height:1.3;}
+/* CTA */
+.cta{position:relative;text-align:center;padding:clamp(110px,16vh,190px) 24px;color:var(--cream);overflow:hidden;background:radial-gradient(120% 100% at 50% 40%,var(--teal) 0%,var(--teal-deep) 55%,#0b5d54 100%);}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,rgba(0,0,0,0) 45%,rgba(11,93,84,.3) 100%);}
+.cta h2{position:relative;z-index:2;font-family:var(--font-display);font-size:clamp(34px,5vw,54px);font-weight:600;letter-spacing:-0.01em;color:var(--cream);margin-bottom:32px;}
+.cta .btn-primary{position:relative;z-index:2;}
+/* Footer */
+.footer{background:var(--coffee-deep);color:var(--beige);padding:72px 24px 56px;}
+.footer__grid{display:grid;grid-template-columns:1fr;gap:40px;max-width:1100px;margin:0 auto;}
+.footer__brand .logo img{height:34px;width:auto;}
+.footer__brand .tagline{font-family:var(--font-hero);font-size:17px;letter-spacing:.02em;color:rgba(225,214,192,.82);margin:16px 0 16px;}
+.footer__social{display:flex;gap:18px;color:var(--beige);}
+.footer__col h4{font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:16px;font-weight:500;}
+.footer__col a{display:block;font-family:var(--font-sans);font-size:13px;font-weight:300;color:rgba(225,214,192,.8);margin-bottom:10px;transition:color .2s;}
+.footer__col a:hover{color:var(--cream);}
+.footer__copy{text-align:center;margin-top:48px;font-family:var(--font-sans);font-size:11px;color:rgba(225,214,192,.5);}
+@media(min-width:980px){.footer{padding:80px 80px 56px;}.footer__grid{grid-template-columns:1.4fr 1fr 1fr;gap:64px;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+/* Made by mom section */
+.mom-section{background:var(--cream);padding:clamp(80px,10vh,130px) 24px;}
+.mom__inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:48px;align-items:center;}
+@media(min-width:720px){.mom__inner{grid-template-columns:1.1fr 1fr;gap:72px;}}
+.mom__img-wrap{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:16/9;}
+.mom__img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.mom__text .chapter{margin-bottom:20px;}
+.mom__text h3{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:600;line-height:1.1;letter-spacing:-0.01em;color:var(--ink);margin-bottom:22px;}
+.mom__text p{font-family:var(--font-serif);font-style:italic;font-size:clamp(16px,1.9vw,19px);line-height:1.6;color:var(--coffee);max-width:440px;}
+/* Cup closing */
+.cup-close{position:relative;height:clamp(300px,45vh,520px);overflow:hidden;}
+.cup-close img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;}
+.cup-close::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,75,70,.1) 0%,rgba(9,104,95,.45) 100%);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="index.html" class="nav__logo"><img src="assets/logo-horizontal-white.png" alt="Travesía — A Story in Every Cup"></a>
+  <ul class="nav__links">
+    <li><a href="index.html#raices">Raíces</a></li>
+    <li><a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
+    <li><a href="index.html#film">Film</a></li>
+    <li><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+  </ul>
+  <div class="nav__right">
+    <div class="lang"><button data-lang="en" class="active">EN</button><span>/</span><button data-lang="es">ES</button></div>
+    <a href="raices.html" aria-label="Raices"><svg class="cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg></a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
+  <a href="index.html#raices">Raíces</a>
+  <a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a>
+  <a href="index.html#film">Film</a>
+  <a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a>
+  <div class="lang"><button data-lang="en" class="active">EN</button><span>/</span><button data-lang="es">ES</button></div>
+  <div class="mm-social">Instagram &middot; Facebook &middot; Twitter</div>
+</div>
+
+<section class="opening">
+  <div class="opening__logo"><img src="assets/logo-vertical-notag.png" alt="Travesía — A Story in Every Cup"></div>
+  <p class="opening__tagline">A Story in Every Cup</p>
+  <p data-en="Travesia is the journey we share with those who dared to cross borders &mdash; geographic, emotional, and personal." data-es="Travesia es el viaje que compartimos con quienes se atrevieron a cruzar fronteras &mdash; geograficas, emocionales y personales.">Travesia is the journey we share with those who dared to cross borders &mdash; geographic, emotional, and personal.</p>
+  <a href="#gathering" class="roots-link" data-en="The First Gathering &rarr;" data-es="El Primer Encuentro &rarr;">The First Gathering &rarr;</a>
+</section>
+
+<section class="river">
+  <p data-en="We were born from the desire to honor our roots and turn memory into a bridge between cultures." data-es="Nacimos del deseo de honrar nuestras raices y convertir la memoria en un puente entre culturas.">We were born from the desire to honor our roots and turn memory into a bridge between cultures.</p>
+</section>
+
+<section class="film" id="film">
+  <span class="chapter" data-en="The Film" data-es="El Film">The Film</span>
+  <p data-en="The film that gave Travesia its first voice &mdash; recorded between Bucaramanga and New York." data-es="El film que le dio a Travesia su primera voz &mdash; grabado entre Bucaramanga y New York.">The film that gave Travesia its first voice &mdash; recorded between Bucaramanga and New York.</p>
+  <div class="film__player"><button class="film__play" data-track="VideoClick" aria-label="Play film"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></div>
+</section>
+
+<section class="gathering" id="gathering">
+  <span class="chapter" data-en="The First Gathering" data-es="El Primer Encuentro">The First Gathering</span>
+  <h2 class="gathering__title" data-en="The First Gathering" data-es="El Primer Encuentro">The First Gathering</h2>
+  <p class="gathering__sub" data-en="A private gathering in New York where Travesía shared its first chapter with people from different origins, memories, and journeys." data-es="Un encuentro privado en New York donde Travesía compartió su primer capítulo con personas de distintos orígenes, memorias y travesías.">A private gathering in New York where Travesía shared its first chapter with people from different origins, memories, and journeys.</p>
+  <div class="gathering__grid">
+    <figure class="g-img g-main">
+      <img src="assets/event/event-gathering-01.jpg" alt="Guests holding Raíces bags at The First Gathering" loading="lazy">
+    </figure>
+    <figure class="g-img g-side">
+      <img src="assets/event/event-gathering-02.jpg" alt="Travesía guest with Raíces bag" loading="lazy">
+    </figure>
+    <figure class="g-img g-side">
+      <img src="assets/event/event-gathering-03.jpg" alt="The First Gathering event moment" loading="lazy">
+    </figure>
+    <figure class="g-img g-side">
+      <img src="assets/event/event-gathering-04.jpg" alt="Travesía event guest interaction" loading="lazy">
+    </figure>
+    <figure class="g-img g-side">
+      <img src="assets/event/event-gathering-05.jpg" alt="Raíces bags at the Travesía event" loading="lazy">
+    </figure>
+    <figure class="g-img g-side">
+      <img src="assets/event/event-gathering-06.jpg" alt="Travesía first gathering in New York" loading="lazy">
+    </figure>
+    <figure class="g-img g-side">
+      <img src="assets/event/event-gathering-07.jpg" alt="Travesía community moment" loading="lazy">
+    </figure>
+    <figure class="g-img g-side">
+      <img src="assets/event/event-gathering-08.jpg" alt="Travesía event atmosphere" loading="lazy">
+    </figure>
+  </div>
+  <p class="gathering__note" data-en="New York &middot; 2026" data-es="New York &middot; 2026">New York &middot; 2026</p>
+</section>
+
+
+<!-- BOLSA MADE BY MOM -->
+<section class="mom-section">
+  <div class="mom__inner">
+    <div class="mom__img-wrap">
+      <img src="assets/event/event-bolsa-made-by-mom.jpg" alt="Travesia bag — Made by mom, Made in Colombia" loading="lazy">
+    </div>
+    <div class="mom__text">
+      <span class="chapter" data-en="Made by mom" data-es="Hecho por mama">Made by mom</span>
+      <h3 data-en="Made by mom.<br>Made in Colombia." data-es="Hecho por mama.<br>Hecho en Colombia.">Made by mom.<br>Made in Colombia.</h3>
+      <p data-en="Every bag that arrives with your Raices was sewn by hand in Bucaramanga, Colombia. Not a factory. A family. Warmth you can feel before the first sip." data-es="Cada bolsa que llega con tu Raices fue cosida a mano en Bucaramanga, Colombia. No es una fabrica. Es una familia. Calidez que se siente antes del primer sorbo.">Every bag that arrives with your Raices was sewn by hand in Bucaramanga, Colombia. Not a factory. A family. Warmth you can feel before the first sip.</p>
+    </div>
+  </div>
+</section>
+
+<section class="participants" id="participants">
+  <span class="chapter" data-en="Many stories" data-es="Muchas historias">Many stories</span>
+  <h2 class="participants__title" data-en="Many stories. One cup." data-es="Muchas historias. Una taza.">Many stories. One cup.</h2>
+  <p class="participants__sub" data-en="Ten journeys. Ten origins. The first chapter of Travesia." data-es="Diez travesias. Diez origenes. El primer capitulo de Travesia.">Ten journeys. Ten origins. The first chapter of Travesia.</p>
+  <div class="participants__grid">
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/pierre-zorza.jpg" alt="Pierre Zorza" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">PZ</div>
+      </div>
+      <div class="person__flag">&#x1F1EB;&#x1F1F7;</div>
+      <div class="person__name">Pierre Zorza</div>
+      <div class="person__country" data-en="France" data-es="Francia">France</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/juliana-salcedo.jpg" alt="Juliana Salcedo" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">JS</div>
+      </div>
+      <div class="person__flag">&#x1F1E8;&#x1F1F4;</div>
+      <div class="person__name">Juliana Salcedo</div>
+      <div class="person__country" data-en="Colombia" data-es="Colombia">Colombia</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/panagiotis-monogioudis.jpg" alt="Panagiotis Monogioudis" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">PM</div>
+      </div>
+      <div class="person__flag">&#x1F1EC;&#x1F1F7;</div>
+      <div class="person__name">Panagiotis Monogioudis</div>
+      <div class="person__country" data-en="Greece" data-es="Grecia">Greece</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/wilson-pinilla.jpg" alt="Wilson Pinilla" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">WP</div>
+      </div>
+      <div class="person__flag">&#x1F1E8;&#x1F1F4;</div>
+      <div class="person__name">Wilson Pinilla</div>
+      <div class="person__country" data-en="Colombia" data-es="Colombia">Colombia</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/ruoyu-ma.jpg" alt="Ruoyu Ma" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">RM</div>
+      </div>
+      <div class="person__flag">&#x1F1E8;&#x1F1F3;</div>
+      <div class="person__name">Ruoyu Ma</div>
+      <div class="person__country" data-en="China" data-es="China">China</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/andrea-noriega.jpg" alt="Andrea Noriega" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">AN</div>
+      </div>
+      <div class="person__flag">&#x1F1F2;&#x1F1FD;</div>
+      <div class="person__name">Andrea Noriega</div>
+      <div class="person__country" data-en="Mexico" data-es="Mexico">Mexico</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/maria-rojas.jpg" alt="Maria Rojas" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">MR</div>
+      </div>
+      <div class="person__flag">&#x1F1FB;&#x1F1EA;</div>
+      <div class="person__name">Maria Rojas</div>
+      <div class="person__country" data-en="Venezuela" data-es="Venezuela">Venezuela</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/egor-klevtcov.jpg" alt="Egor Klevtcov" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">EK</div>
+      </div>
+      <div class="person__flag">&#x1F1F7;&#x1F1FA;</div>
+      <div class="person__name">Egor Klevtcov</div>
+      <div class="person__country" data-en="Russia" data-es="Rusia">Russia</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/djamal-salaouatchi.jpg" alt="Djamal Salaouatchi" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">DS</div>
+      </div>
+      <div class="person__flag">&#x1F1E9;&#x1F1FF;</div>
+      <div class="person__name">Djamal Salaouatchi</div>
+      <div class="person__country" data-en="Algeria" data-es="Argelia">Algeria</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+    <article class="person">
+      <div class="person__photo">
+        <img src="assets/participants/massama-diakite.jpg" alt="Massama Diakite" loading="lazy" onerror="this.style.display='none';">
+        <div class="person__ph">MD</div>
+      </div>
+      <div class="person__flag">&#x1F1F2;&#x1F1F1;</div>
+      <div class="person__name">Massama Diakite</div>
+      <div class="person__country" data-en="Mali" data-es="Mali">Mali</div>
+      <div class="person__label" data-en="Part of Travesia's first chapter." data-es="Parte del primer capitulo de Travesia.">Part of Travesia's first chapter.</div>
+    </article>
+  </div>
+</section>
+
+<!-- CUP CLOSING -->
+<section class="cup-close">
+  <img src="assets/event/event-travesia-cup-logo.jpg" alt="Travesia — A story in every cup" loading="lazy">
+</section>
+
+<section class="cta">
+  <h2 data-en="Now it's your turn." data-es="Ahora es tu turno.">Now it's your turn.</h2>
+  <a href="index.html#early-access" class="btn-primary cta-main" data-track="PreorderClick" data-ea-en="Join Early Access" data-ea-es="Unirme al Early Access" data-po-en="Preorder Raíces" data-po-es="Reservar Raíces">Join Early Access</a>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><div class="logo"><img src="assets/logo-horizontal-white.png" alt="Travesía — A Story in Every Cup"></div><p class="tagline">A Story in Every Cup</p><div class="footer__social">Instagram &middot; Facebook &middot; Twitter</div></div>
+    <div class="footer__col"><h4>Travesia</h4><a href="index.html#raices">Raíces</a><a href="our-story.html" data-en="Our Story" data-es="Nuestra Historia">Our Story</a><a href="index.html#film">Film</a><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contact</a></div>
+    <div class="footer__col"><h4 data-en="Support / Legal" data-es="Soporte / Legal">Support / Legal</h4><a href="legal.html#privacy" data-en="Privacy Policy" data-es="Politica de Privacidad">Privacy Policy</a><a href="legal.html#cookies" data-en="Cookie Policy" data-es="Politica de Cookies">Cookie Policy</a><a href="legal.html#terms" data-en="Terms &amp; Conditions" data-es="Terminos y Condiciones">Terms &amp; Conditions</a><a href="legal.html#shipping" data-en="Shipping &amp; Returns" data-es="Envios y Devoluciones">Shipping &amp; Returns</a><a href="index.html#contact" data-en="Customer Service" data-es="Atencion al Cliente">Customer Service</a></div>
+  </div>
+  <p class="footer__copy">&copy; 2026 Travesia Colombian Corp. All rights reserved.</p>
+</footer>
+
+<script>
+const SITE_PHASE='early-access'; let LANG='en';
+function track(event,params){params=params||{};window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:event},params));if(window.fbq){const s={Lead:'Lead',ViewContent:'ViewContent',AddToCart:'AddToCart',Purchase:'Purchase'};if(s[event])fbq('track',s[event],params);else fbq('trackCustom',event,params);}if(window.ttq){const s={Lead:'SubmitForm',ViewContent:'ViewContent',AddToCart:'AddToCart',Purchase:'CompletePayment'};if(s[event])ttq.track(s[event],params);else ttq.track(event,params);}}
+const mm=document.getElementById('mobileMenu');
+document.getElementById('burger').addEventListener('click',()=>mm.classList.add('open'));
+document.getElementById('mmClose').addEventListener('click',()=>mm.classList.remove('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+function render(){
+  document.documentElement.lang=LANG;
+  const ea=SITE_PHASE==='early-access';
+  document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.getAttribute('data-'+LANG));
+  const p=ea?'ea':'po';
+  document.querySelectorAll('.cta-main').forEach(el=>{el.innerHTML=el.getAttribute('data-'+p+'-'+LANG);el.setAttribute('href',ea?'index.html#early-access':'raices.html');});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===LANG));
+}
+function setLang(l){const prev=LANG;LANG=l;render();if(l!==prev)track('LanguageSwitch',{from:prev,to:l,phase:SITE_PHASE,page:'our_story'});}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.querySelectorAll('[data-track]').forEach(el=>el.addEventListener('click',()=>track(el.getAttribute('data-track'),{phase:SITE_PHASE,lang:LANG})));
+render();
+track('PageView',{phase:SITE_PHASE});
+track('ViewContent',{content_name:'our_story',phase:SITE_PHASE});
+/* IntersectionObserver — section tracking */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var id=e.target.id;
+    if(id==='gathering')track('EventGalleryView',{phase:SITE_PHASE,lang:LANG});
+    if(id==='participants')track('ParticipantsSectionView',{phase:SITE_PHASE,lang:LANG});
+    obs.unobserve(e.target);
+  });
+},{threshold:0.15});
+['gathering','participants'].forEach(function(id){var el=document.getElementById(id);if(el)obs.observe(el);});
+</script>
+</body>
+</html>
